@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Feedback Board</title>
+        <link rel="stylesheet" href="/src/style.css" />
+
+        <script src="https://unpkg.com/lucide@latest"></script>
+    </head>
+
+    <body
+        class="min-h-screen bg-linear-to-br from-slate-950 via-fuchsia-950 to-slate-900 text-white"
+    >
+        <div class="w-full min-h-screen px-4 py-6 md:px-8 md:py-10">
+            <div
+                class="mx-auto flex max-w-7xl flex-col gap-6 lg:flex-row lg:items-start lg:justify-center"
+            >
+                <!-- MAIN CARD -->
+                <main
+                    class="w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-white/95 text-slate-900 shadow-2xl shadow-black/20 backdrop-blur"
+                >
+                    <!-- HEADER -->
+                    <section
+                        class="bg-linear-to-r from-slate-900 via-fuchsia-900 to-violet-900 px-6 py-8 md:px-10 md:py-10 text-white"
+                    >
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20"
+                            >
+                                <i
+                                    data-lucide="messages-square"
+                                    class="h-6 w-6 text-amber-300"
+                                ></i>
+                            </div>
+
+                            <div>
+                                <p
+                                    class="text-xs uppercase tracking-[0.25em] text-slate-300"
+                                >
+                                    Public Board
+                                </p>
+                                <h1 class="mt-1 text-3xl font-bold md:text-4xl">
+                                    Give Feedback
+                                    <span class="italic text-sky-300"
+                                        >Publicly</span
+                                    >
+                                </h1>
+                            </div>
+                        </div>
+
+                        <p
+                            class="mt-4 max-w-2xl text-sm leading-6 text-slate-300 md:text-base"
+                        >
+                            Share product thoughts, feature requests, or company
+                            feedback. Add a
+                            <span class="text-gray-400 font-bold"
+                                >#hashtag</span
+                            >
+                            so your feedback is easier to discover.
+                        </p>
+                    </section>
+
+                    <!-- FORM -->
+                    <section
+                        class="border-b border-slate-200 bg-slate-50 px-6 py-6 md:px-10"
+                    >
+                        <form id="feedback-form" class="space-y-4">
+                            <div class="relative">
+                                <label
+                                    for="feedback-input"
+                                    class="mb-2 block text-sm font-medium text-slate-700"
+                                >
+                                    Your feedback
+                                </label>
+
+                                <textarea
+                                    id="feedback-input"
+                                    rows="5"
+                                    maxlength="150"
+                                    placeholder="Write your feedback here..."
+                                    class="w-full resize-none rounded-2xl border border-slate-300 bg-white px-4 py-4 text-sm text-slate-800 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100 md:text-base"
+                                ></textarea>
+
+                                <div
+                                    class="mt-3 flex items-center justify-between"
+                                >
+                                    <p class="text-sm text-slate-500">
+                                        Tip: include at least one
+                                        <span
+                                            class="font-semibold text-fuchsia-700"
+                                            >#hashtag</span
+                                        >
+                                    </p>
+
+                                    <span
+                                        id="char-count"
+                                        class="text-sm font-medium text-slate-400"
+                                        >150</span
+                                    >
+                                </div>
+                            </div>
+
+                            <!-- MOBILE HASHTAGS -->
+                            <div class="lg:hidden">
+                                <p
+                                    class="mb-3 text-sm font-semibold text-slate-700"
+                                >
+                                    Popular hashtags
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <button
+                                        type="button"
+                                        class="rounded-full bg-blue-100 px-3 py-1.5 text-sm font-medium text-blue-700"
+                                    >
+                                        #Javascript
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="rounded-full bg-violet-100 px-3 py-1.5 text-sm font-medium text-violet-700"
+                                    >
+                                        #Microsoft
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="rounded-full bg-pink-100 px-3 py-1.5 text-sm font-medium text-pink-700"
+                                    >
+                                        #Nike
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex items-center justify-between gap-4"
+                            >
+                                <div
+                                    class="flex items-center gap-2 text-sm text-slate-500"
+                                >
+                                    <i
+                                        data-lucide="sparkles"
+                                        class="h-4 w-4"
+                                    ></i>
+                                    <span
+                                        >Be clear, short, and respectful.</span
+                                    >
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200"
+                                >
+                                    <i data-lucide="send" class="h-4 w-4"></i>
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- FEEDBACK LIST HEADER -->
+                    <section
+                        class="flex flex-col gap-3 border-b border-slate-200 px-6 py-4 md:flex-row md:items-center md:justify-between md:px-10"
+                    >
+                        <div>
+                            <h2 class="text-lg font-bold text-slate-900">
+                                Latest Feedback
+                            </h2>
+                            <p class="text-sm text-slate-500">
+                                See what people are saying right now.
+                            </p>
+                        </div>
+
+                        <div
+                            class="flex items-center gap-2 text-sm text-slate-500"
+                        >
+                            <i data-lucide="filter" class="h-4 w-4"></i>
+                            <button id="sort-date">Sort by Date</button>
+                            <button id="sort-views">Sort by Views</button>
+                        </div>
+                    </section>
+
+                    <!-- FEEDBACK LIST -->
+                    <section
+                        id="feedback-list"
+                        class="divide-y divide-slate-200"
+                    >
+                        <!-- Feedback items will be added here -->
+                    </section>
+
+                    <!-- FOOTER -->
+                    <footer
+                        class="border-t border-slate-200 bg-slate-50 px-6 py-4 text-center text-xs text-slate-500 md:px-10"
+                    >
+                        © 2026 Feedback Board. Designed for portfolio showcase.
+                    </footer>
+                </main>
+
+                <!-- DESKTOP SIDEBAR HASHTAGS -->
+                <aside
+                    class="hidden w-full max-w-xs lg:sticky lg:top-10 lg:block"
+                >
+                    <div
+                        class="rounded-3xl border border-white/10 bg-white/10 p-5 text-white shadow-xl backdrop-blur-md"
+                    >
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10"
+                            >
+                                <i
+                                    data-lucide="hash"
+                                    class="h-5 w-5 text-sky-300"
+                                ></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Popular Tags</h3>
+                                <p class="text-sm text-slate-300">
+                                    Quick topic shortcuts
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <div
+                                id="popular-tags"
+                                class="flex flex-wrap gap-2"
+                            ></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>
