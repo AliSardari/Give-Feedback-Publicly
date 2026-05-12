@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Give Feedback Publicly
 
 **Give Feedback Publicly** is a lightweight public feedback board where anyone can browse sample feedback, filter by popular hashtags, and submit new feedback through a form.
@@ -36,4 +35,3 @@ npm run dev
 =======
 # Give-Feedback-Publicly
 A public feedback board demo where users can browse, add feedback, and explore clickable hashtags.
->>>>>>> 36460f5614417d7b9b8835a479b4fc7a43686625
